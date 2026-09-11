@@ -16,9 +16,9 @@ Tương tự như một switch vật lý, Linux Bridge sở hữu một bảng M
 **TUN/TAP devices**
 
 Thiết bị TAP đóng vai trò giống như một "sợi cáp mạng ảo" giúp truyền tải Ethernet frames giữa máy ảo và switch ảo.
-  - TUN (Tunnel) mô phỏng thiết bị lớp mạng (Layer 3 - OSI), xử lý các gói tin IP và thường được dùng cho mục đích định tuyến.
-
   - TAP (Network Tap) mô phỏng thiết bị lớp liên kết dữ liệu (Layer 2 - OSI), xử lý các Ethernet frames, được dùng để tạo network bridge.
+
+  - TUN (Tunnel) mô phỏng thiết bị lớp mạng (Layer 3 - OSI), xử lý các gói tin IP và thường được dùng cho mục đích định tuyến.
 
 > TUN is used with routing, while TAP is used to create a network bridge
 
@@ -57,3 +57,71 @@ Là mô hình mặc định của libvirt (sử dụng bridge virbr0), cung cấ
 Bằng cách liên kết trực tiếp một card mạng vật lý của máy chủ (hoặc VLAN, Bond interface) vào một bridge ảo, máy ảo sẽ xuất hiện trên mạng vật lý như một thiết bị độc lập.
 
 Máy ảo sẽ nhận IP trực tiếp từ DHCP vật lý và có thể dễ dàng truy cập trực tiếp từ ngoài vào, thích hợp khi chạy các dịch vụ server hoặc webserver.
+
+### 3. Cấu hình Network trong KVM
+Mặc định khi cài xong KVM, ta sẽ có một mạng ảo NAT mang tên `default`. 
+
+![](../img/network/def-net.png)
+
+Ta có thể add một mạng ảo với mô hình NAT khác.
+
+```bash
+virt-manager
+```
+
+Chọn *Edit* -> *Connection Details*. Chọn tab Virtual Network, ta thấy danh sách các mạng ở bên trái. Để thêm mạng, ta click biểu tượng + ;
+
+![](../img/network/virt-manager.png)
+
+- Nhập tên cho mạng 
+- Chọn dải mạng định tạo. Sau đó, chọn dải cấp cho máy ảo, hoặc có thể chọn đặt IP tĩnh
+- Chọn Mô hình mạng theo các mô hình
+
+**Tạo Network với giao diện CLIENT**
+
+**Kiểm tra mạng hiện có**
+
+```bash
+virsh net-list --all
+```
+
+![](../img/network/net-list.png)
+
+**Tạo một mạng**
+
+Tạo file xml: `sudo nano virnet2.xml` với nội dung:
+
+![](../img/network/cre-virnet.png)
+
+Thêm forward NAT: 
+
+```bash
+<forward mode='nat'/>
+```
+
+**Định nghĩa và bật mạng**
+
+```bash
+virsh net-define isolated.xml
+virsh net-autostart isolated
+virsh net-start isolated
+```
+
+![](../img/network/def-net.png)
+
+**Gán máy ảo sang mạng vừa tạo**
+
+``` bash
+virsh edit Tribie
+```
+
+![](../img/network/edit-tribbie-2.png)
+![](../img/network/edit-tribbie-1.png)
+
+**Detach NIC cũ (default)**
+
+![](../img/network/det-nic.png)
+
+**Attach NIC mới (virnet2)**
+
+![](../img/network/att-nic.png)

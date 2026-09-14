@@ -1,6 +1,6 @@
 # KVM Migration
 
-Trong KVM, **Di trú máy ảo (VM Migration)** là tính năng cho phép di chuyển máy ảo đang hoạt động hoặc đã tắt từ máy chủ vật lý (host) này sang máy chủ vật lý khác với thời gian gián đoạn dịch vụ rất ngắn hoặc bằng không.
+**Di trú máy ảo (VM Migration)** là tính năng cho phép di chuyển máy ảo đang hoạt động hoặc đã tắt từ máy chủ vật lý (host) này sang máy chủ vật lý khác với thời gian gián đoạn dịch vụ rất ngắn hoặc bằng không.
 
 **Lợi ích của di trú máy ảo**
 

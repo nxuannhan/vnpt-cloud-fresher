@@ -85,7 +85,7 @@ Cài đặt 1 VM trên host KVM. Cài đặt các gói cần thiết để dùng
 
 Shutdown VM:
 
-![altimage](../images/Screenshot_37.png)
+<!-- ![altimage](../images/Screenshot_37.png) -->
 
 Cài đặt gói `libguestfs-tools-c` trên KVM host:
 ```bash
@@ -96,7 +96,7 @@ Sử dụng `virt-sysprep` để loại bỏ các thông tin cấu hình như UU
 virt-sysprep -d testvm
 ```
 
-![altimage](../images/Screenshot_50.png)
+<!-- ![altimage](../images/Screenshot_50.png) -->
 
 Backup file xml của template bằng lệnh `dumpxml`
 ```bash
@@ -107,7 +107,7 @@ Undefine máy ảo
 virsh undefine testvm
 ```
 
-![altimage](../images/Screenshot_51.png)
+<!-- ![altimage](../images/Screenshot_51.png) -->
 ### 5.2 Sử dụng template
 Copy file image template sang host KVM02:
 ```bash
@@ -125,7 +125,7 @@ Kiểm tra xem file mới tạo ra đã được chỉ tới file backup của n
 ```bash
 qemu-img info /var/lib/libvirt/images/vm1.qcow2
 ```
-![altimage](../images/Screenshot_52.png)
+<!-- ![altimage](../images/Screenshot_52.png) -->
 
 Dùng virt-clone để tạo ra máy ảo mới từ file XML
 **Lưu ý**: nếu bạn dùng phiên bản khác nhau thì cần sửa lại file xml
@@ -138,4 +138,4 @@ virt-clone \
 ```
 
 Khởi động máy
-![altimage](../images/Screenshot_53.png)
+<!-- ![altimage](../images/Screenshot_53.png) -->

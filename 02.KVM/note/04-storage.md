@@ -26,6 +26,8 @@ Toàn bộ tài nguyên lưu trữ được kiểm soát trực tiếp bởi lib
 
 **Storage Pool** (Kho lưu trữ) -->
 
+<!--  -->
+
 **Các định dạng ổ đĩa (Disk Formats):**
 
 **Raw:**

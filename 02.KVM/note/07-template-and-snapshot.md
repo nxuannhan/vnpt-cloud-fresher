@@ -79,7 +79,7 @@ virt-sysprep -a /var/lib/libvirt/images/centos-stream9.qcow2
 
 Sau khi chạy lệnh có thể dùng `virt-clone` hoặc `virt-install` để tạo VM mới từ image này.
 
-## 5. Lab tạo template và cài đặt VM từ template
+## 4. Tạo template và cài đặt VM từ template
 ### 5.1 Tạo template
 Cài đặt 1 VM trên host KVM. Cài đặt các gói cần thiết để dùng làm template.
 

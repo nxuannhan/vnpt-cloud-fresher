@@ -39,3 +39,5 @@ Thư mục lưu các bản snapshot của VM
 ```/var/lib/libvirt/qemu/snapshot```
 
 ![](../img/file-organization/snap.png)
+
+<!-- Raw, Qcow2 format? can be converted? -->

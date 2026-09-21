@@ -126,3 +126,6 @@ Ta có thể xóa card mạng bằng 2 cách:
 ```bash
   virsh detach-interface --domain demo --type network --mac 52:54:00:2c:24:cb --config
   ``` -->
+
+  <!-- Tìm hiểu file xml? Các thành phần có ý nghĩa gì? -->
+  

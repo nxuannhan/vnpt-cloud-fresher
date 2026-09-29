@@ -1,7 +1,0 @@
-
-- idea of explicit and implicit
-- what is nfs filesystem
-- what is executable binaries
-- permission on linux (octal) + sticky bit (0 or 1)
-
-- port publishing 

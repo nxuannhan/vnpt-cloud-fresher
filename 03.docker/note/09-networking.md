@@ -121,20 +121,30 @@ docker run -d --name redis redis --bind 127.0.0.1
 docker run --rm -it --network container:redis redis redis-cli -h 127.0.0.1
 ```
 
+---
+
 ## 2. Docker With iptables
 
 Docker uses `iptables` to manage network traffic and enforce security between containers and the outside world.
 
 ### 2.1. Docker and iptables chains
 
+---
+
 ## 3. Docker With nftables
+
+---
 
 ## 4. Packet Filtering and Firewalls
 
+---
+
 ## 5. Port Publishing and Mapping
 
-## 6. Network Drivers
+---
 
-## 7. CA Certificates
+## 6. CA Certificates
 
-## 8. Legacy Container Links
+---
+
+## 7. Legacy Container Links
